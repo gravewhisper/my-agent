@@ -8,7 +8,7 @@ My Pi config, versioned so a new machine can go from empty to familiar in one co
 ## Install
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/gravewhisper/my-agent/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/gravewhisper/my-agent/master/install.sh | bash
 ```
 
 It will:
