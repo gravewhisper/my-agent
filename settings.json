@@ -1,0 +1,23 @@
+{
+  "lastChangelogVersion": "0.63.1",
+  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-5.4",
+  "defaultThinkingLevel": "medium",
+  "hideThinkingBlock": false,
+  "showHardwareCursor": false,
+  "quietStartup": true,
+  "doubleEscapeAction": "tree",
+  "theme": "monokai-classic",
+  "packages": [
+    "npm:pi-powerline-footer",
+    "npm:@heyhuynhgiabuu/pi-pretty",
+    {
+      "source": "npm:@heyhuynhgiabuu/pi-diff",
+      "extensions": [
+        "+src/index.ts"
+      ]
+    },
+    "npm:pi-subagents",
+    "npm:pi-btw"
+  ]
+}
