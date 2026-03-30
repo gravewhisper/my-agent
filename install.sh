@@ -4,22 +4,46 @@ set -euo pipefail
 REPO_URL="https://github.com/gravewhisper/my-agent"
 TARGET_DIR="${PI_CODING_AGENT_DIR:-$HOME/.pi/agent}"
 BACKUP_DIR="${TARGET_DIR}.bak.$(date +%Y%m%d-%H%M%S)"
+LOCAL_BIN="$HOME/.local/bin"
 
-if ! command -v git >/dev/null 2>&1; then
-  echo "error: git is required" >&2
-  exit 1
-fi
+export PATH="$LOCAL_BIN:$PATH"
 
-if ! command -v npm >/dev/null 2>&1; then
-  echo "error: npm is required" >&2
-  exit 1
-fi
+need_cmd() {
+  command -v "$1" >/dev/null 2>&1
+}
 
-if ! command -v pi >/dev/null 2>&1; then
+install_arch_deps() {
+  local missing=()
+
+  need_cmd git || missing+=(git)
+  need_cmd npm || missing+=(npm nodejs)
+  need_cmd python3 || missing+=(python)
+  need_cmd uv || missing+=(uv)
+  need_cmd rg || missing+=(ripgrep)
+  need_cmd fd || missing+=(fd)
+
+  if [ ${#missing[@]} -eq 0 ]; then
+    return 0
+  fi
+
+  if ! need_cmd pacman; then
+    echo "error: missing required tools: ${missing[*]}" >&2
+    echo "error: automatic dependency install is only implemented for Arch Linux (pacman)." >&2
+    exit 1
+  fi
+
+  echo "Installing missing Arch packages: ${missing[*]}"
+  sudo pacman -Syu --needed "${missing[@]}"
+}
+
+install_arch_deps
+
+if ! need_cmd pi; then
   npm install -g @mariozechner/pi-coding-agent
 fi
 
 mkdir -p "$(dirname "$TARGET_DIR")"
+mkdir -p "$LOCAL_BIN"
 
 if [ -e "$TARGET_DIR" ]; then
   mv "$TARGET_DIR" "$BACKUP_DIR"
@@ -41,6 +65,14 @@ for pkg in data.get('packages', []):
 PY
 fi
 
+if ! need_cmd grg || ! need_cmd fnd; then
+  uv tool install git+https://github.com/kaofelix/greprip
+fi
+
 echo
+if ! printf '%s' ":$PATH:" | grep -q ":$LOCAL_BIN:"; then
+  echo "Note: add $LOCAL_BIN to your PATH if grg/fnd are not found in new shells."
+fi
+
 echo "Done."
 echo "Next step: run 'pi' and then /login (or set your API keys)."

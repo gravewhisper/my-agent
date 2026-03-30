@@ -8,6 +8,7 @@
   "quietStartup": true,
   "doubleEscapeAction": "tree",
   "theme": "monokai-classic",
+  "shellCommandPrefix": "grep() { grg \"$@\"; }; find() { fnd \"$@\"; };",
   "packages": [
     "npm:pi-powerline-footer",
     "npm:@heyhuynhgiabuu/pi-pretty",
@@ -21,6 +22,7 @@
     "npm:pi-btw",
     "npm:pi-web-access",
     "npm:@danchamorro/pi-prompt-enhancer",
-    "npm:@ssweens/pi-handoff"
+    "npm:@ssweens/pi-handoff",
+    "local-packages/plankton-for-all"
   ]
 }

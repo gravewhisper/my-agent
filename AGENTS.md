@@ -12,7 +12,6 @@ Use this workflow for coding tasks unless the project has a more specific local 
 ## Default behavior
 - Prefer minimal diffs.
 - Keep responses short, direct, and concise unless the user asks for more detail.
-- Prefer `fd` over `find` and `rg` over `grep` for file and text search when available.
 - Do not refactor unrelated code unless asked.
 - Preserve existing public APIs and behavior unless the task requires changing them.
 - Call out assumptions, unknowns, and risky changes explicitly.
