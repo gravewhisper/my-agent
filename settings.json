@@ -23,6 +23,6 @@
     "npm:pi-web-access",
     "npm:@danchamorro/pi-prompt-enhancer",
     "npm:@ssweens/pi-handoff",
-    "local-packages/plankton-for-all"
+    "../packages/plankton-for-all"
   ]
 }
