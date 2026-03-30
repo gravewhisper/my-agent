@@ -22,7 +22,6 @@
     "npm:pi-btw",
     "npm:pi-web-access",
     "npm:@danchamorro/pi-prompt-enhancer",
-    "npm:@ssweens/pi-handoff",
-    "../packages/plankton-for-all"
+    "npm:@ssweens/pi-handoff"
   ]
 }
