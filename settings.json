@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.63.2",
+  "lastChangelogVersion": "0.64.0",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.4",
   "defaultThinkingLevel": "medium",
@@ -19,6 +19,8 @@
     },
     "npm:pi-subagents",
     "npm:pi-btw",
-    "npm:pi-web-access"
+    "npm:pi-web-access",
+    "npm:@danchamorro/pi-prompt-enhancer",
+    "npm:@ssweens/pi-handoff"
   ]
 }
