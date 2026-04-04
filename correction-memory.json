@@ -1,0 +1,16 @@
+{
+  "rules": [
+    {
+      "id": "mnjz577j-0744h3",
+      "scope": "global",
+      "text": "use python3",
+      "createdAt": "2026-04-04T06:51:30.367Z"
+    },
+    {
+      "id": "mnjz5hxd-m04zzt",
+      "scope": "global",
+      "text": "use ripgrep or find",
+      "createdAt": "2026-04-04T06:51:44.257Z"
+    }
+  ]
+}

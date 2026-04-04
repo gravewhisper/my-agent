@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.64.0",
+  "lastChangelogVersion": "0.65.0",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.4",
   "defaultThinkingLevel": "medium",
@@ -11,14 +11,6 @@
   "shellCommandPrefix": "grep() { grg \"$@\"; }; find() { fnd \"$@\"; };",
   "packages": [
     "npm:pi-powerline-footer",
-    "npm:@heyhuynhgiabuu/pi-pretty",
-    {
-      "source": "npm:@heyhuynhgiabuu/pi-diff",
-      "extensions": [
-        "+src/index.ts"
-      ]
-    },
-    "npm:pi-subagents",
     "npm:pi-btw",
     "npm:pi-web-access",
     "npm:@danchamorro/pi-prompt-enhancer",
