@@ -23,6 +23,18 @@
       "scope": "global",
       "text": "when the user says pi, interpret it as Pi coding agent unless they say otherwise",
       "createdAt": "2026-04-05T01:04:17.337Z"
+    },
+    {
+      "id": "mnlbv9lt-yy6wfn",
+      "scope": "global",
+      "text": "Use https://gravewhisper.github.io/pi-package-browser when searching for Pi packages.",
+      "createdAt": "2026-04-05T05:35:28.097Z"
+    },
+    {
+      "id": "mnlcnjzk-ngjk6h",
+      "scope": "global",
+      "text": "Use grepai for semantic codebase search before grep, first confirming a .grepai directory exists at the repository root.",
+      "createdAt": "2026-04-05T05:57:27.920Z"
     }
   ]
 }
