@@ -6,44 +6,8 @@ Versioned Pi config for `~/.pi/agent`.
 - Provider/model: `openai-codex` / `gpt-5.4`
 - Theme: `monokai-classic`
 - Shell wrappers: `grep -> grg`, `find -> fnd`
-- Pi packages:
-  - `npm:pi-powerline-footer`
-  - `npm:pi-btw`
-  - `npm:@danchamorro/pi-prompt-enhancer`
-  - `npm:@ssweens/pi-handoff`
 
-## Install
-
-Install:
-
-```bash
-curl -fsSL https://raw.githubusercontent.com/gravewhisper/my-agent/master/install.sh | sh
-```
-
-`install.sh` backs up an existing `~/.pi/agent`, clones this repo, and installs packages from `settings.json`.
-
-Then run:
-
-```bash
-pi
-```
-
-Inside Pi:
-
-```text
-/login
-```
-
-## Requirements
-
-- Pi (`pi`)
-- `uv`
-- `ripgrep` (`rg`)
-- `fd`
-- `grg` and `fnd`
-- `~/.local/bin` on `PATH`
-
-## Fresh machine setup
+## 1. Install prerequisites
 
 ### macOS
 
@@ -53,7 +17,6 @@ npm install -g @mariozechner/pi-coding-agent
 uv tool install git+https://github.com/kaofelix/greprip
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
 source ~/.zshrc
-curl -fsSL https://raw.githubusercontent.com/gravewhisper/my-agent/master/install.sh | sh
 ```
 
 ### Linux (Arch)
@@ -64,7 +27,34 @@ npm install -g @mariozechner/pi-coding-agent
 uv tool install git+https://github.com/kaofelix/greprip
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
+```
+
+Required:
+- Pi (`pi`)
+- `uv`
+- `ripgrep` (`rg`)
+- `fd`
+- `grg` and `fnd`
+- `~/.local/bin` on `PATH`
+
+## 2. Install this repo
+
+```bash
 curl -fsSL https://raw.githubusercontent.com/gravewhisper/my-agent/master/install.sh | sh
+```
+
+`install.sh` backs up an existing `~/.pi/agent`, clones this repo, and installs packages from `settings.json`.
+
+## 3. Start Pi
+
+```bash
+pi
+```
+
+Inside Pi:
+
+```text
+/login
 ```
 
 ## Update
