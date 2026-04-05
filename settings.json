@@ -14,6 +14,7 @@
     "npm:pi-btw",
     "npm:pi-web-access",
     "npm:@danchamorro/pi-prompt-enhancer",
-    "npm:@ssweens/pi-handoff"
+    "npm:@ssweens/pi-handoff",
+    "https://github.com/PrathamLearnsToCode/paper2code"
   ]
 }

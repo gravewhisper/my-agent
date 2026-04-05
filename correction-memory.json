@@ -11,6 +11,12 @@
       "scope": "global",
       "text": "use ripgrep or find",
       "createdAt": "2026-04-04T06:51:44.257Z"
+    },
+    {
+      "id": "mnk354h5-tc72uu",
+      "scope": "global",
+      "text": "use uv instead of pip",
+      "createdAt": "2026-04-04T08:43:25.289Z"
     }
   ]
 }
