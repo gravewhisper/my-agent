@@ -13,6 +13,7 @@
     "npm:pi-powerline-footer",
     "npm:pi-btw",
     "npm:@danchamorro/pi-prompt-enhancer",
-    "npm:@ssweens/pi-handoff"
+    "npm:@ssweens/pi-handoff",
+    "npm:pi-mcp-adapter"
   ]
 }
