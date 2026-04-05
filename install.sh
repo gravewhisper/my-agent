@@ -12,35 +12,23 @@ need_cmd() {
   command -v "$1" >/dev/null 2>&1
 }
 
-install_arch_deps() {
+require_cmds() {
   local missing=()
 
-  need_cmd git || missing+=(git)
-  need_cmd npm || missing+=(npm nodejs)
-  need_cmd python3 || missing+=(python)
-  need_cmd uv || missing+=(uv)
-  need_cmd rg || missing+=(ripgrep)
-  need_cmd fd || missing+=(fd)
+  for cmd in git python3 pi uv rg fd grg fnd; do
+    need_cmd "$cmd" || missing+=("$cmd")
+  done
 
   if [ ${#missing[@]} -eq 0 ]; then
     return 0
   fi
 
-  if ! need_cmd pacman; then
-    echo "error: missing required tools: ${missing[*]}" >&2
-    echo "error: automatic dependency install is only implemented for Arch Linux (pacman)." >&2
-    exit 1
-  fi
-
-  echo "Installing missing Arch packages: ${missing[*]}"
-  sudo pacman -Syu --needed "${missing[@]}"
+  echo "error: missing required tools: ${missing[*]}" >&2
+  echo "error: install the prerequisites from README.md first, then rerun install.sh" >&2
+  exit 1
 }
 
-install_arch_deps
-
-if ! need_cmd pi; then
-  npm install -g @mariozechner/pi-coding-agent
-fi
+require_cmds
 
 mkdir -p "$(dirname "$TARGET_DIR")"
 mkdir -p "$LOCAL_BIN"
@@ -63,10 +51,6 @@ for pkg in data.get('packages', []):
     print(f"Installing {src}...")
     subprocess.run(['pi', 'install', src], check=True)
 PY
-fi
-
-if ! need_cmd grg || ! need_cmd fnd; then
-  uv tool install git+https://github.com/kaofelix/greprip
 fi
 
 echo

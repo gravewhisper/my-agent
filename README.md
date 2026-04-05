@@ -20,7 +20,7 @@ Install:
 curl -fsSL https://raw.githubusercontent.com/gravewhisper/my-agent/master/install.sh | bash
 ```
 
-`install.sh` installs missing Arch dependencies, installs Pi if needed, backs up an existing `~/.pi/agent`, clones this repo, installs packages from `settings.json`, and installs `greprip` if needed.
+`install.sh` backs up an existing `~/.pi/agent`, clones this repo, and installs packages from `settings.json`.
 
 Then run:
 
@@ -36,6 +36,7 @@ Inside Pi:
 
 ## Requirements
 
+- Pi (`pi`)
 - `uv`
 - `ripgrep` (`rg`)
 - `fd`
@@ -48,30 +49,22 @@ Inside Pi:
 
 ```bash
 brew install uv ripgrep fd
-curl -fsSL https://raw.githubusercontent.com/gravewhisper/my-agent/master/install.sh | bash
-```
-
-If `grg` or `fnd` are missing:
-
-```bash
+npm install -g @mariozechner/pi-coding-agent
 uv tool install git+https://github.com/kaofelix/greprip
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
 source ~/.zshrc
+curl -fsSL https://raw.githubusercontent.com/gravewhisper/my-agent/master/install.sh | bash
 ```
 
 ### Linux (Arch)
 
 ```bash
 sudo pacman -Syu --needed uv ripgrep fd
+npm install -g @mariozechner/pi-coding-agent
+uv tool install git+https://github.com/kaofelix/greprip
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
 curl -fsSL https://raw.githubusercontent.com/gravewhisper/my-agent/master/install.sh | bash
-```
-
-If `grg` or `fnd` are missing:
-
-```bash
-uv tool install git+https://github.com/kaofelix/greprip
 ```
 
 ## Update
