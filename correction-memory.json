@@ -9,7 +9,7 @@
     {
       "id": "mnjz5hxd-m04zzt",
       "scope": "global",
-      "text": "use ripgrep or find",
+      "text": "use ripgrep or find before reading many files",
       "createdAt": "2026-04-04T06:51:44.257Z"
     },
     {
@@ -21,7 +21,7 @@
     {
       "id": "mnl26j09-ivsal4",
       "scope": "global",
-      "text": "when I'm talking about pi, it's pi coding agent and not raspberry pi.",
+      "text": "when the user says pi, interpret it as Pi coding agent unless they say otherwise",
       "createdAt": "2026-04-05T01:04:17.337Z"
     }
   ]
