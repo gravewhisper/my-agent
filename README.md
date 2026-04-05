@@ -17,7 +17,7 @@ Versioned Pi config for `~/.pi/agent`.
 Install:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/gravewhisper/my-agent/master/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/gravewhisper/my-agent/master/install.sh | sh
 ```
 
 `install.sh` backs up an existing `~/.pi/agent`, clones this repo, and installs packages from `settings.json`.
@@ -53,7 +53,7 @@ npm install -g @mariozechner/pi-coding-agent
 uv tool install git+https://github.com/kaofelix/greprip
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
 source ~/.zshrc
-curl -fsSL https://raw.githubusercontent.com/gravewhisper/my-agent/master/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/gravewhisper/my-agent/master/install.sh | sh
 ```
 
 ### Linux (Arch)
@@ -64,7 +64,7 @@ npm install -g @mariozechner/pi-coding-agent
 uv tool install git+https://github.com/kaofelix/greprip
 echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
-curl -fsSL https://raw.githubusercontent.com/gravewhisper/my-agent/master/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/gravewhisper/my-agent/master/install.sh | sh
 ```
 
 ## Update

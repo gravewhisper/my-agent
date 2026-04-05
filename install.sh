@@ -1,5 +1,5 @@
-#!/usr/bin/env bash
-set -euo pipefail
+#!/usr/bin/env sh
+set -eu
 
 REPO_URL="https://github.com/gravewhisper/my-agent"
 TARGET_DIR="${PI_CODING_AGENT_DIR:-$HOME/.pi/agent}"
@@ -13,25 +13,25 @@ need_cmd() {
 }
 
 require_cmds() {
-  local missing=()
+  missing=""
 
   for cmd in git python3 pi uv rg fd grg fnd; do
-    need_cmd "$cmd" || missing+=("$cmd")
+    if ! need_cmd "$cmd"; then
+      missing="$missing $cmd"
+    fi
   done
 
-  if [ ${#missing[@]} -eq 0 ]; then
+  if [ -z "$missing" ]; then
     return 0
   fi
 
-  echo "error: missing required tools: ${missing[*]}" >&2
+  echo "error: missing required tools:${missing}" >&2
   echo "error: install the prerequisites from README.md first, then rerun install.sh" >&2
   exit 1
 }
 
-require_cmds
-
 validate_install() {
-  local failed=0
+  failed=0
 
   echo
   echo "Validation:"
@@ -71,12 +71,14 @@ validate_install() {
     failed=1
   fi
 
-  if [ $failed -ne 0 ]; then
+  if [ "$failed" -ne 0 ]; then
     echo
     echo "Install finished with validation errors." >&2
     exit 1
   fi
 }
+
+require_cmds
 
 mkdir -p "$(dirname "$TARGET_DIR")"
 mkdir -p "$LOCAL_BIN"
