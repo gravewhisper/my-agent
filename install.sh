@@ -30,6 +30,54 @@ require_cmds() {
 
 require_cmds
 
+validate_install() {
+  local failed=0
+
+  echo
+  echo "Validation:"
+
+  if need_cmd pi; then
+    echo "- pi: ok"
+  else
+    echo "- pi: missing"
+    failed=1
+  fi
+
+  if need_cmd grg; then
+    echo "- grg: ok"
+  else
+    echo "- grg: missing"
+    failed=1
+  fi
+
+  if need_cmd fnd; then
+    echo "- fnd: ok"
+  else
+    echo "- fnd: missing"
+    failed=1
+  fi
+
+  if [ -d "$TARGET_DIR" ]; then
+    echo "- repo: ok ($TARGET_DIR)"
+  else
+    echo "- repo: missing ($TARGET_DIR)"
+    failed=1
+  fi
+
+  if [ -f "$TARGET_DIR/settings.json" ]; then
+    echo "- settings.json: ok"
+  else
+    echo "- settings.json: missing"
+    failed=1
+  fi
+
+  if [ $failed -ne 0 ]; then
+    echo
+    echo "Install finished with validation errors." >&2
+    exit 1
+  fi
+}
+
 mkdir -p "$(dirname "$TARGET_DIR")"
 mkdir -p "$LOCAL_BIN"
 
@@ -53,10 +101,18 @@ for pkg in data.get('packages', []):
 PY
 fi
 
+validate_install
+
 echo
 if ! printf '%s' ":$PATH:" | grep -q ":$LOCAL_BIN:"; then
   echo "Note: add $LOCAL_BIN to your PATH if grg/fnd are not found in new shells."
 fi
 
-echo "Done."
-echo "Next step: run 'pi' and then /login (or set your API keys)."
+echo
+printf '%s
+' \
+  "Done." \
+  "Next:" \
+  "- run: pi" \
+  "- inside Pi: /login" \
+  "- verify wrappers: type grep && type find"
