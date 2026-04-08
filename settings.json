@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.65.2",
+  "lastChangelogVersion": "0.66.1",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.4",
   "defaultThinkingLevel": "medium",
@@ -11,9 +11,7 @@
   "shellCommandPrefix": "grep() { grg \"$@\"; }; find() { fnd \"$@\"; };",
   "packages": [
     "npm:pi-powerline-footer",
-    "npm:pi-btw",
     "npm:@danchamorro/pi-prompt-enhancer",
-    "npm:@ssweens/pi-handoff",
     "npm:pi-mcp-adapter"
   ]
 }
