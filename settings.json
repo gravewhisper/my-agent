@@ -10,8 +10,13 @@
   "theme": "monokai-classic",
   "shellCommandPrefix": "grep() { grg \"$@\"; }; find() { fnd \"$@\"; };",
   "packages": [
-    "npm:pi-powerline-footer",
     "npm:@danchamorro/pi-prompt-enhancer",
-    "npm:pi-mcp-adapter"
-  ]
+    "npm:pi-mcp-adapter",
+    "npm:pi-fff",
+    "npm:pi-bash-live-view",
+    "npm:pi-answer"
+  ],
+  "images": {
+    "blockImages": true
+  }
 }
